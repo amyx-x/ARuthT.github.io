@@ -371,3 +371,12 @@ backdrop-filter: blur(10px);
     font-size: 0.75rem;
   }
 }
+#benlink{
+  color:blue;
+  transition: 0.2s ease;
+
+}
+#benlink:hover{
+  color: rgb(209, 11, 209);
+}
+
