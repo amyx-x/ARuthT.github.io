@@ -1,4 +1,21 @@
+// Disable right click globally
+document.addEventListener("contextmenu", (e) => {
+  e.preventDefault();
+});
+
+// Extra protection for category cards
+document.querySelectorAll(".category-card").forEach((card) => {
+  card.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+  });
+});
+
+// Disable dragging
+document.querySelectorAll("img, video").forEach((el) => {
+  el.setAttribute("draggable", "false");
+});
 document.querySelectorAll(".slideshow").forEach((slideshow) => {
+  
   const slides = slideshow.querySelectorAll(".slide");
   const prevBtn = slideshow.querySelector(".prev");
   const nextBtn = slideshow.querySelector(".next");
