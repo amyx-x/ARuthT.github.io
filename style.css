@@ -380,3 +380,47 @@ backdrop-filter: blur(10px);
   color: rgb(209, 11, 209);
 }
 
+.slideshow {
+  position: relative;
+}
+
+.slide-image {
+  position: relative;
+}
+
+.slide-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(246, 243, 238, 0.8);
+  color: var(--text);
+  font-size: 1.5rem;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.25s ease, background 0.25s ease;
+  z-index: 20;
+  user-select: none;
+}
+
+.slideshow:hover .slide-arrow {
+  opacity: 1;
+}
+
+.slide-arrow:hover {
+  background: rgba(28, 27, 25, 0.9);
+  color: var(--bg);
+}
+
+.slide-arrow.prev {
+  left: 18px;
+}
+
+.slide-arrow.next {
+  right: 18px;
+}
