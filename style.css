@@ -374,12 +374,12 @@ backdrop-filter: blur(10px);
     font-size: 0.75rem;
   }
 }
-#benlink{
+.link{
   color:blue;
   transition: 0.2s ease;
 
 }
-#benlink:hover{
+.link:hover{
   color: rgb(209, 11, 209);
 }
 
