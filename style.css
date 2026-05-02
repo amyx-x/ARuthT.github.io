@@ -427,3 +427,12 @@ backdrop-filter: blur(10px);
 .slide-arrow.next {
   right: 18px;
 }
+
+.slide-image video {
+  max-height: calc(100vh - 120px);
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
