@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,61 +7,70 @@
   <title>Amy Liddington — Artist Portfolio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
+  <canvas id="paint-canvas" aria-hidden="true"></canvas>
 
-  <header class="site-header">
-    <div class="header-inner">
-      <a href="index.html" class="signature-wrap">
-        <img src="images/sig.png" alt="Amy Liddington signature" />
-        <span class="signature-glitch" aria-hidden="true"></span>
-      </a>
-      <nav class="main-nav">
-        <a href="about.html">About Me</a>
-        <a href="#body-of-work">Body of Work</a>
-        <a href="https://www.instagram.com/amu_x_art/" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="https://www.linkedin.com/in/amy-liddington-a07385301/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      </nav>
-    </div>
-  </header>
+  <div id="page-glitch-wrapper">
 
-  <main class="page-wrap hero-space">
-    <section class="intro-copy">
-      <!-- <p> A multimedia artist and Fine Art graduate with an interest in digital culture, psychology and visual communication. My work uses installation, image-making, video and interactive processes to explore how people experience, interpret and respond to technology-driven environments </p> -->
-    </section>
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="index.html" class="signature-wrap">
+          <img src="images/sig.png" alt="Amy Liddington signature" />
+          <span class="signature-glitch" aria-hidden="true"></span>
+        </a>
 
-    <section id="body-of-work" class="category-grid">
-      <a class="category-card" href="photography.html">
-        <img src="images/animalskull.jpg" alt="Photography" />
-        <div class="category-label">Photography</div>
-      </a>
+        <nav class="main-nav">
+          <a href="about.html">About Me</a>
+          <a href="#body-of-work">Body of Work</a>
+          <a href="https://www.instagram.com/amu_x_art/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.linkedin.com/in/amy-liddington-a07385301/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </nav>
+      </div>
+    </header>
 
-      <a class="category-card" href="commissions.html">
-        <img src="images/cromer4.png" alt="Commissions" />
-        <div class="category-label">Commissions</div>
-      </a>
+    <main class="page-wrap hero-space">
+      <section class="intro-copy">
+        <!-- <p> A multimedia artist and Fine Art graduate with an interest in digital culture, psychology and visual communication. My work uses installation, image-making, video and interactive processes to explore how people experience, interpret and respond to technology-driven environments </p> -->
+      </section>
 
-      <a class="category-card" href="digital-art.html">
-        <img src="images/download.jpg" alt="Visual programming and digital art" />
-        <div class="category-label">Visual Programming & Digital Art</div>
-      </a>
+      <section id="body-of-work" class="category-grid">
 
-      <a class="category-card" href="paintings.html">
-        <img src="images/test.JPG" alt="Paintings" />
-        <div class="category-label">Physical Artwork</div>
-      </a>
+        <a class="category-card" href="photography.html">
+          <img src="images/animalskull.jpg" alt="Photography" />
+          <div class="category-label">Photography</div>
+        </a>
 
-      <a class="category-card" href="installation.html">
-        <img src="images/IMG_8066 (1).JPG" alt="Installation" />
-        <div class="category-label">Gallery Exhibitions</div>
-      </a>
+        <a class="category-card" href="commissions.html">
+          <img src="images/cromer4.png" alt="Commissions" />
+          <div class="category-label">Commissions</div>
+        </a>
 
-      <a class="category-card" href="process.html">
-        <img src="images/suitcasehands.jpg" alt="The artist's process" />
-        <div class="category-label"> The Artist's Process</div>
-      </a>
-      
-    </section>
-  </main>
+        <a class="category-card" href="digital-art.html">
+          <img src="images/download.jpg" alt="Visual programming and digital art" />
+          <div class="category-label">Visual Programming & Digital Art</div>
+        </a>
+
+        <a class="category-card" href="paintings.html">
+          <img src="images/test.JPG" alt="Paintings" />
+          <div class="category-label">Physical Artwork</div>
+        </a>
+
+        <a class="category-card" href="installation.html">
+          <img src="images/IMG_8066 (1).JPG" alt="Installation" />
+          <div class="category-label">Gallery Exhibitions</div>
+        </a>
+
+        <a class="category-card" href="process.html">
+          <img src="images/suitcasehands.jpg" alt="The artist's process" />
+          <div class="category-label">The Artist's Process</div>
+        </a>
+
+      </section>
+    </main>
+
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>

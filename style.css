@@ -1,9 +1,9 @@
 :root {
-  --bg: #f6f3ee;
-  --bg-soft: #efeae2;
-  --text: #1c1b19;
+  --bg: #f8f8f8;
+  --bg-soft: #ffffff;
+  --text: #000000;
   --muted: #6f6a63;
-  --line: #d8d1c7;
+  --line: #ffffff;
   --overlay: rgba(28, 27, 25, 0.35);
   --max-width: 1400px;
   --pad: 28px;
@@ -39,7 +39,7 @@ a {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(246, 243, 238, 0.95);
+  background: rgba(192, 191, 191, 0.95);
   -webkit-backdrop-filter: blur(10px);
 backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
@@ -135,12 +135,13 @@ backdrop-filter: blur(10px);
   border: 1px solid var(--line);
 }
 
-.category-card img {
+.category-card img { 
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.6s ease;
-}
+ }
+
 
 .category-card::after {
   content: "";
@@ -403,7 +404,7 @@ backdrop-filter: blur(10px);
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: rgba(246, 243, 238, 0.8);
+  background: rgba(255, 255, 255, 0.8);
   color: var(--text);
   font-size: 1.5rem;
   cursor: pointer;
@@ -631,5 +632,481 @@ backdrop-filter: blur(10px);
         opacity: 0.5;
         transform: translate(3px, 0);
         clip-path: inset(0);
+    }
+}
+/* =================================
+   DIGITAL PAINTBRUSH CURSOR
+================================= */
+
+#paint-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+/* Keep the website content above the paint trail */
+
+.site-header {
+    z-index: 1000;
+}
+
+.page-wrap {
+    position: relative;
+    z-index: 2;
+}
+
+/* =================================
+   FLOATING EYEBALL
+================================= */
+
+
+.floating-eye {
+    position: fixed;
+    width: 125px;
+    height: 125px;
+    right: 35px;
+    bottom: 30px;
+    top: auto;
+    z-index: 1001;
+    pointer-events: none;
+    animation: eye-float 4s ease-in-out infinite;
+}
+
+/* THE EYEBALL */
+
+.eye-white {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+
+    background: radial-gradient(
+        circle at 45% 38%,
+        #ffffff 0%,
+        #f7f6f4 42%,
+        #96928f 68%,
+        #5e5c59 88%,
+        #141413 100%
+    );
+
+    box-shadow:
+        0 9px 24px rgba(0,0,0,0.25),
+        0 0 18px rgba(70,65,60,0.22),
+        inset 0 -8px 15px rgba(0,0,0,0.20),
+        inset 0 4px 9px rgba(255,255,255,0.95);
+}
+
+/* SUBTLE RED VEINS */
+
+.eye-white::before {
+    content: "";
+    position: absolute;
+    inset: 3px;
+    border-radius: 50%;
+    z-index: 1;
+    pointer-events: none;
+
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23c66f70' stroke-width='1.2' stroke-linecap='round' opacity='.65'%3E%3Cpath d='M5 48 C22 39 18 27 34 23 S47 12 53 3 M18 39 C30 39 32 49 43 51 S54 61 59 68 M34 23 C38 14 34 9 39 3 M43 51 C49 42 59 43 66 35'/%3E%3Cpath d='M195 65 C177 59 181 44 164 39 S153 24 147 13 M181 53 C168 55 166 67 154 70 S144 81 139 87 M164 39 C160 30 165 24 160 16 M154 70 C147 61 139 62 132 54'/%3E%3Cpath d='M10 145 C27 139 30 126 44 125 S58 113 64 105 M28 134 C39 137 43 147 55 149 S65 158 70 166 M44 125 C47 115 43 109 50 101'/%3E%3Cpath d='M192 151 C174 145 173 132 158 128 S145 115 138 108 M174 139 C163 143 159 154 148 158 S137 169 132 177 M158 128 C155 118 160 111 154 104'/%3E%3C/g%3E%3C/svg%3E")
+        center / 100% 100% no-repeat;
+
+    opacity: 0.8;
+}
+
+/* BLUE IRIS */
+
+.eye-iris {
+    position: absolute;
+    width: 58px;
+    height: 58px;
+    left: 50%;
+    top: 50%;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        #080d16 0%,
+        #080d16 25%,
+        #24517a 29%,
+        #4689b5 43%,
+        #78b2ce 52%,
+        #28577f 68%,
+        #142b45 85%,
+        #080d16 100%
+    );
+
+    box-shadow:
+        0 0 4px rgba(0,0,0,0.7),
+        inset 0 0 5px rgba(0,0,0,0.5);
+
+    transition: transform 0.12s ease-out;
+}
+
+/* PUPIL */
+
+.eye-pupil {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: #080706;
+}
+
+/* EYE REFLECTION */
+
+.eye-highlight {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    top: 9px;
+    left: 13px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.9);
+    filter: blur(1px);
+}
+
+/* BLINKING EYELID */
+
+.eye-white::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    border-radius: 50%;
+    pointer-events: none;
+
+    background: linear-gradient(
+        to bottom,
+        #c9b4ad 0%,
+        #e5d5ce 45%,
+        #c6aaa2 100%
+    );
+
+    transform: scaleY(0);
+    transform-origin: top;
+    animation: eye-blink 4s infinite;
+}
+
+/* FLOATING MOVEMENT */
+
+@keyframes eye-float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* BLINK ANIMATION */
+
+@keyframes eye-blink {
+    0%, 88%, 100% {
+        transform: scaleY(0);
+    }
+
+    91% {
+        transform: scaleY(1);
+    }
+
+    94% {
+        transform: scaleY(0);
+    }
+}
+
+/* MOBILE SIZING */
+
+@media (max-width: 700px) {
+    .floating-eye {
+        width: 85px;
+        height: 85px;
+        right: 18px;
+        bottom: 18px;
+    }
+
+    .eye-iris {
+        width: 40px;
+        height: 40px;
+    }
+
+    .eye-pupil {
+        width: 19px;
+        height: 19px;
+    }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+    .floating-eye {
+        animation: none;
+    }
+
+    .eye-white::after {
+        animation: none;
+    }
+}
+
+
+/* =================================
+   DIGITAL GLITCH — STATIC & CONTENT BREAKUP
+================================= */
+
+/* Keep the page itself still */
+#page-glitch-wrapper {
+    transform: none;
+}
+
+/* IMAGE SIGNAL DISTORTION */
+body.page-glitch .image-box img,
+body.page-glitch .placeholder-tile img {
+    animation: image-breakup 0.48s steps(1, end);
+}
+
+body.page-glitch .slide-image {
+    animation: image-breakup 0.48s steps(1, end);
+    will-change: transform, filter, clip-path;
+}
+
+body.page-glitch .category-card img {
+    animation: image-breakup 0.48s steps(1, end);
+}
+
+@keyframes image-breakup {
+    0%, 100% {
+        transform: translate(0, 0);
+        filter: none;
+        clip-path: inset(0);
+    }
+
+    12% {
+        transform: translate(-5px, 2px);
+        filter: contrast(1.5) saturate(1.5)
+                drop-shadow(3px 0 rgba(255, 0, 45, 0.65));
+    }
+
+    13% {
+        transform: translate(8px, -1px);
+        filter: contrast(1.8)
+                drop-shadow(-3px 0 rgba(0, 65, 255, 0.7));
+        clip-path: inset(18% 0 52% 0);
+    }
+
+    14% {
+        transform: translate(-2px, 0);
+        clip-path: inset(0);
+    }
+
+    32% {
+        transform: translate(6px, -3px);
+        filter: hue-rotate(12deg) contrast(1.4);
+        clip-path: inset(35% 0 25% 0);
+    }
+
+    33% {
+        transform: translate(-4px, 2px);
+        clip-path: inset(0);
+    }
+
+    55% {
+        transform: translate(-3px, 1px);
+        filter: contrast(1.3)
+                drop-shadow(2px 0 rgba(255, 0, 45, 0.5));
+    }
+
+    56% {
+        transform: translate(2px, -1px);
+        filter: none;
+        clip-path: inset(0);
+    }
+}
+
+
+/* TEXT SIGNAL DISTORTION */
+
+body.page-glitch .slide-caption,
+body.page-glitch .gallery-header,
+body.page-glitch .category-label,
+body.page-glitch .text-box,
+body.page-glitch .education-block,
+body.page-glitch .info-box,
+body.page-glitch .contact-box,
+body.page-glitch .floating-eye {
+    animation: text-breakup 0.48s steps(1, end);
+    will-change: transform, filter, text-shadow;
+}
+
+@keyframes text-breakup {
+    0%, 100% {
+        transform: translate(0, 0);
+        filter: none;
+        text-shadow: none;
+    }
+
+    12% {
+        transform: translate(4px, -1px);
+        text-shadow: -2px 0 rgba(0, 65, 255, 0.65),
+                      2px 0 rgba(255, 0, 45, 0.55);
+    }
+
+    13% {
+        transform: translate(-7px, 2px);
+        text-shadow: 2px 0 rgba(255, 0, 45, 0.6);
+        filter: contrast(1.4);
+    }
+
+    14% {
+        transform: translate(0, 0);
+        text-shadow: none;
+    }
+
+    32% {
+        transform: translate(-5px, 1px);
+        text-shadow: -2px 0 rgba(0, 65, 255, 0.6);
+    }
+
+    33% {
+        transform: translate(3px, -1px);
+        text-shadow: 2px 0 rgba(255, 0, 45, 0.5);
+    }
+
+    55% {
+        transform: translate(-2px, 0);
+        text-shadow: none;
+    }
+}
+
+
+/* FULL SCREEN STATIC OVERLAY */
+
+.background-glitch-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    pointer-events: none;
+    overflow: hidden;
+    opacity: 0;
+}
+
+.background-glitch-overlay.active {
+    animation: signal-flicker 0.48s steps(1, end);
+}
+
+/* Darker, more visible television noise */
+
+.background-glitch-overlay::after {
+    content: "";
+    position: absolute;
+    inset: -50%;
+    opacity: 0;
+    pointer-events: none;
+
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+
+    background-size: 90px 90px;
+    mix-blend-mode: normal;
+    filter: contrast(1.8) brightness(0.65);
+}
+
+.background-glitch-overlay.active::after {
+    animation: static-flicker 0.48s steps(1, end);
+}
+
+/* Screen flicker */
+
+@keyframes signal-flicker {
+    0%, 100% { opacity: 0; }
+    12% { opacity: 0.12; }
+    13% { opacity: 0.35; }
+    14% { opacity: 0.04; }
+    32% { opacity: 0.2; }
+    33% { opacity: 0.03; }
+    55% { opacity: 0.15; }
+    56% { opacity: 0; }
+}
+
+/* Static flickers in several bursts */
+
+@keyframes static-flicker {
+    0%, 100% { opacity: 0; }
+    12% { opacity: 0.35; }
+    13% { opacity: 0.75; }
+    14% { opacity: 0.18; }
+    22% { opacity: 0.55; }
+    23% { opacity: 0.08; }
+    32% { opacity: 0.65; }
+    33% { opacity: 0.15; }
+    45% { opacity: 0.4; }
+    46% { opacity: 0.05; }
+    55% { opacity: 0.7; }
+    56% { opacity: 0; }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+    body.page-glitch .slide-image,
+    body.page-glitch .slide-caption,
+    body.page-glitch .gallery-header,
+    body.page-glitch .category-card img,
+    body.page-glitch .category-label,
+    .background-glitch-overlay.active,
+    .background-glitch-overlay.active::after {
+        animation: none !important;
+    }
+}
+
+
+/* FLOATING EYEBALL GLITCH */
+
+body.page-glitch .floating-eye {
+    animation: eye-glitch 0.48s steps(1, end);
+    will-change: transform, filter;
+}
+
+@keyframes eye-glitch {
+    0%, 100% {
+        transform: translate(0, 0);
+        filter: none;
+    }
+
+    12% {
+        transform: translate(-5px, 2px) skewX(4deg);
+        filter: drop-shadow(3px 0 rgba(255, 0, 45, 0.8));
+    }
+
+    13% {
+        transform: translate(7px, -2px) skewX(-5deg);
+        filter: drop-shadow(-4px 0 rgba(0, 65, 255, 0.9))
+                hue-rotate(35deg);
+    }
+
+    14% {
+        transform: translate(-2px, 0);
+        filter: contrast(1.8);
+    }
+
+    32% {
+        transform: translate(4px, 1px) scaleX(1.05);
+        filter: hue-rotate(80deg) contrast(1.5);
+    }
+
+    33% {
+        transform: translate(-5px, -1px);
+        filter: drop-shadow(3px 0 rgba(255, 0, 45, 0.7));
+    }
+
+    55% {
+        transform: translate(2px, 0) skewX(-3deg);
+        filter: drop-shadow(-2px 0 rgba(0, 65, 255, 0.7));
     }
 }
